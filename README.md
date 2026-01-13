@@ -1,11 +1,11 @@
-<h1 align="center">Product Cards</h1>
-<p align="center">Response Product Cards HTML CSS & JavaScript</p>
+<h1 align="center">Card Bio Discord Link</h1>
+<p align="center">Response Card Bio Discord Link HTML CSS & JavaScript</p>
 <p align="center">CREATED BY.</p>
 
 ### <h1 align="center">[Shrawaan Thapa](https://github.com/shrawaanthapa)</h1>
   
 ### Description
-- Responsive Product Cards HTML CSS & JavaScript.
+- Responsive Card Bio Discord Link HTML CSS & JavaScript.
 - Contains animations when scrolling.
 - Smooth scrolling in each section.
 - Developed first with the Mobile First methodology, then for desktop.
@@ -18,7 +18,7 @@
 - CSS Bootstrap
 - Edit Content From One Place
 
-### <h1 align="center">[Live Demo](https://shrawaanthapa.github.io/Product-Cards-Template/)</h1>
+### <h1 align="center">[Live Demo](https://https://shrawaanthapa.github.io/card-bio-for-discord-link/)</h1>
 ### <h1 align="center">[YouTube Preview](https://youtu.be/wvVcWgc83FE)</h1>
 
 ### Join for Tutorial Video
