@@ -18,7 +18,7 @@
 - CSS Bootstrap
 - Edit Content From One Place
 
-### <h1 align="center">[Live Demo](https://https://shrawaanthapa.github.io/card-bio-for-discord-link/)</h1>
+### <h1 align="center">[Live Demo](https://shrawaanthapa.github.io/card-bio-for-discord-link/)</h1>
 ### <h1 align="center">[YouTube Preview](https://youtu.be/wvVcWgc83FE)</h1>
 
 ### Join for Tutorial Video
