@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SHRA௰AAN THAPA — WEB DEVELOPER</title>
+    <meta name="description" content="Portfolio landing page for Olivia Wilson, photographer." />
+
+    <style>
+        :root {
+            --bg: #0e141b;
+            --text: #0f1214;
+            --muted: #5a6472;
+            --card: #ffffff;
+            --accent: #1f71ff;
+            --accent-2: #ff6a3d;
+            --button-bg: #0f1214;
+            --button-text: #ffffff;
+            --shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+            --radius-xl: 28px;
+            --radius-md: 16px;
+            --radius-sm: 10px;
+            --maxw: 1040px;
+        }
+
+        /* Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.45;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Layout */
+        .page {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            min-height: 100vh;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Hero beach banner */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 42vh;
+            background: url('./assets/img/beach.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text);
+            overflow: hidden;
+        }
+
+        /* Overlay for contrast */
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Hero content */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 20px;
+            animation: fadeUp 1.5s ease forwards;
+        }
+
+        /* Title animation */
+        .hero-title {
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: 800;
+            background: #fca40034;
+            border-right: 2px solid var(--text);
+            text-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+            animation: typing 3000ms steps(30, end) infinite, blink 0.7s step-end infinite;
+        }
+
+        /* Typing effect */
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+
+            40% {
+                width: 100%;
+            }
+
+            60% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+            }
+        }
+
+        /* Cursor blink */
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 22px);
+            font-weight: 400;
+            background: #fca40034;
+            margin-top: 12px;
+            opacity: 0;
+            text-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+            animation: fadeInOut 6s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Main card that overlaps hero */
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('./assets/img/beach.png') repeat-x;
+            opacity: 0.03;
+            animation: waveMove 12s linear infinite;
+        }
+
+        @keyframes waveMove {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 100% 0;
+            }
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, #ff9f6f, #ffd27f, #87ceeb, #0e141b);
+            animation: skyShift 20s ease-in-out infinite alternate;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes skyShift {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .hero img.decor {
+            position: absolute;
+            width: 80px;
+            animation: floaty 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes floaty {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .card {
+            position: relative;
+            max-width: var(--maxw);
+            margin: -92px auto 40px;
+            background: var(--card);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            padding: 28px 28px 36px;
+            z-index: 1;
+        }
+
+        
+
+        /* Profile row */
+        .profile {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 22px;
+            align-items: center;
+        }
+
+        /* Avatar with glowing border */
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            background: url('./assets/img/avatar.png') center/cover no-repeat;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            border-radius: 50%;
+            width: 128px;
+            height: 128px;
+            padding: 4px;
+            overflow: hidden;
+            isolation: isolate;
+            box-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                box-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+            }
+
+            50% {
+                box-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+            }
+        }
+
+        .avatar-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 2px 2px 6px rgba(248, 76, 7, 0.733);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Animate name and role Fade‑in + Slide‑dow */
+        .name {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeSlide 1s ease forwards;
+        }
+
+        @keyframes fadeSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Shimmer effect for the name */
+        .name {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            color: #0f1214;
+            font-size: clamp(24px, 4vw, 40px);
+            font-weight: 800;
+            margin: 2px 0 4px;
+            letter-spacing: 0.8px;
+        }
+
+        /* Shimmer highlight sweep */
+        .name::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.705),
+                    transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Fade + slide for the role */
+        .role {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlide 1s ease forwards;
+            animation-delay: 0.5s;
+            color: #5a6472;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-size: clamp(12px, 1.6vw, 14px);
+        }
+
+        @keyframes fadeSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .role {
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-size: clamp(12px, 1.6vw, 14px);
+        }
+
+        .role {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlide 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* Buttons row */
+        .nav {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin: 22px 0 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 16px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            box-shadow: 0 6px 16px rgba(15, 18, 20, 0.25);
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+            will-change: transform;
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid rgba(31, 113, 255, 0.4);
+            outline-offset: 3px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(15, 18, 20, 0.28);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #3ea0ff);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent-2), #ff9f6f);
+        }
+
+        .btn-glass {
+            background: linear-gradient(135deg, #14181d, #0d1116);
+            color: #eaf0f6;
+        }
+
+        .btn-outline {
+            background: #ffffff;
+            color: #0f1214;
+            border: 2px solid #e7edf5;
+            box-shadow: none;
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Contact icons row */
+        .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: #f5f7fb;
+            color: #0f1214;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: background .2s ease;
+        }
+
+        .contact:hover {
+            background: #eef2f8;
+        }
+
+        .contact svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Content sections (for About, Portfolio, Reviews) */
+        .sections {
+            max-width: var(--maxw);
+            margin: 0 auto 80px;
+            padding: 0 4px;
+            display: grid;
+            gap: 28px;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow);
+            padding: 22px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1.2s ease forwards
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section:hover {
+            box-shadow: 0 0 20px rgba(31, 113, 255, 0.3);
+            transition: box-shadow 0.4s ease;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            margin: 0 0 10px;
+            font-size: clamp(18px, 2.8vw, 24px);
+        }
+
+        .section p {
+            margin: 0;
+            color: #3f4a59;
+        }
+
+        .section h2,
+        .section p {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textReveal 1s ease forwards;
+        }
+
+        .section h2 {
+            animation-delay: 0.3s;
+        }
+
+        .section p {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes textReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animate social media contacts */
+        .contacts .contact {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .contacts .contact:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: linear-gradient(135deg, #1f71ff, #3ea0ff);
+            color: #fff;
+        }
+
+        .contacts .contact svg {
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+
+        .contacts .contact:hover svg {
+            transform: rotate(360deg);
+            color: #fff;
+        }
+
+        .contacts .contact span {
+            transition: color 0.3s ease;
+        }
+
+        .contacts .contact:hover span {
+            color: #fff;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .contacts .contact svg {
+            animation: pulse 2s infinite;
+        }
+
+        /* Footer spacer */
+        .footer {
+            padding: 26px 20px 40px;
+            color: #a9b4c2;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 668px) {
+
+            .hero-title {
+                font-size: clamp(18px, 5vw, 28px);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(14px, 3.5vw, 20px);
+            }
+
+            .card {
+                margin: -72px 16px 28px;
+                padding: 24px 20px 32px;
+            }
+
+            .profile {
+                display: flex;
+                position: relative;
+                max-width: var(--maxw);
+                margin: -75px auto 40px;
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+                text-align: center;
+
+
+
+                .avatar-wrap {
+                    width: 25vw;
+                    height: 25vw;
+                }
+
+                .nav {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            @media (max-width: 380px) {
+                .nav {
+                    grid-template-columns: 1fr;
+                }
+
+                .contacts {
+                    gap: 10px;
+                }
+
+                .contact {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- Beach hero banner -->
+        <header class="hero" aria-label="Beach banner backdrop">
+
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Crafting Code, Building Experiences</h1>
+                    <p class="hero-subtitle">Creative & Responsive Web Development by Shrawaan Thapa</p>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- Overlapping main card -->
+        <main class="card" role="main">
+            <!-- Profile header -->
+            <section class="profile" aria-label="Profile">
+                <div class="avatar-wrap" aria-hidden="true">
+                    <div class="avatar" role="img" aria-label="Portrait of SHRA௰AAN THAPA"></div>
+                </div>
+                <div>
+                    <h1 class="name">SHRA௰AAN THAPA</h1>
+                    <div class="role">WEB DEVELOPER</div>
+
+                    <!-- Primary nav buttons -->
+                    <nav class="nav" aria-label="Primary">
+                        <button class="btn btn-outline" data-target="#about">
+                            <!-- Info icon -->
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 17v-6M12 7h.01" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            About Me
+                        </button>
+
+                        <button class="btn btn-glass" data-target="#portfolio">
+                            <!-- Briefcase icon -->
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M4 7h16a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V9a2 2 0 012-2z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Portfolio
+                        </button>
+
+                        <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener"
+                            aria-label="Open website">
+                            <!-- Globe icon -->
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M3 12h18M12 3c2.5 3.5 2.5 14 0 18M7 5.5c2 .5 8 .5 10 0M7 18.5c2-.5 8-.5 10 0"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            Website
+                        </a>
+
+                        <button class="btn btn-secondary" data-target="#reviews">
+                            <!-- Star icon -->
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                                    stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                            </svg>
+                            Reviews
+                        </button>
+                    </nav>
+
+                    <!-- Contact icons -->
+                    <div class="contacts" aria-label="Contacts">
+                        <a class="contact" href="#" aria-label="Location">
+                            <!-- Location pin -->
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 21s-7-6.16-7-11a7 7 0 1114 0c0 4.84-7 11-7 11z" stroke="currentColor"
+                                    stroke-width="2" />
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                            <span>Moscow, RU</span>
+                        </a>
+
+                        <a class="contact" href="mailto:shrawaan.thapa@gmail.com" aria-label="Email">
+                            <!-- Envelope -->
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M22 8l-10 6L2 8" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            <span>shrawaan.thapa@gmail.com</span>
+                        </a>
+
+                        <a class="contact" href="https://example.com" target="_blank" rel="noopener"
+                            aria-label="Website">
+                            <!-- Globe -->
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M3 12h18M12 3c2.5 3.5 2.5 14 0 18M7 5.5c2 .5 8 .5 10 0M7 18.5c2-.5 8-.5 10 0"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            <span>shrawaanthapa.com</span>
+                        </a>
+                        <!-- Social media links -->
+                        <div class="contacts" aria-label="Social media">
+
+                            <a class="contact" href="https://github.com/shrawaanthapa" target="_blank" rel="noopener"
+                                aria-label="GitHub">
+                                <!-- GitHub icon -->
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M12 2C6.48 2 2 6.58 2 12.15c0 4.47 2.87 8.26 6.84 9.61.5.1.68-.22.68-.48
+               0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.36-3.37-1.36-.45-1.17-1.1-1.48-1.1-1.48-.9-.63.07-.62.07-.62
+               1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.13-4.56-5
+               0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.04a9.3 9.3 0 0 1 5 0c1.91-1.31
+               2.75-1.04 2.75-1.04.55 1.41.2 2.45.1 2.71.64.71 1.03 1.62 1.03 2.73 0 3.88-2.34 4.74-4.57 5
+               .36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .26.18.58.69.48A10.17 10.17 0 0 0 22 12.15
+               C22 6.58 17.52 2 12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>shrawaanthapa</span>
+                            </a>
+
+                            <a class="contact" href="https://instagram.com/sharwaan.thapa" target="_blank"
+                                rel="noopener" aria-label="Instagram">
+                                <!-- Instagram icon -->
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z"
+                                        stroke="currentColor" stroke-width="2" />
+                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                                <span>@shrawaan.thapa</span>
+                            </a>
+
+                            <a class="contact" href="https://facebook.com/shrawaan.thapa" target="_blank" rel="noopener"
+                                aria-label="Facebook">
+                                <!-- Facebook icon -->
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>shrawaan.thapa</span>
+                            </a>
+
+                            <a class="contact" href="https://linkedin.com/in/shrawaanthapa" target="_blank"
+                                rel="noopener" aria-label="LinkedIn">
+                                <!-- LinkedIn icon -->
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path
+                                        d="M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4v-6a6 6 0 016-6zM2 9h4v12H2zM4 4a2 2 0 110 4 2 2 0 010-4z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>shrawaanthapa</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Content sections -->
+        <div class="sections">
+            <section id="about" class="section" aria-labelledby="about-title">
+                <h2 id="about-title">About me</h2>
+                <p>
+                    I'm Shrawaan Thapa, a web developer specializing in crafting responsive and user-friendly websites.
+                    With a passion for coding and design, I bring ideas to life on the web. Let's build something great
+                    together!
+                </p>
+            </section>
+
+            <section id="portfolio" class="section" aria-labelledby="portfolio-title">
+                <h2 id="portfolio-title">Portfolio</h2>
+                <p>
+                    Explore my collection of web development projects, showcasing my skills in front-end and back-end
+                    development, responsive design, and user experience. Each project reflects my commitment to quality
+                    and innovation.
+                </p>
+            </section>
+
+            <section id="reviews" class="section" aria-labelledby="reviews-title">
+                <h2 id="reviews-title">Reviews</h2>
+                <p>
+                    Hear from my clients about their experiences working with me. I pride myself on delivering
+                    high-quality work and exceptional service, and I'm grateful for the positive feedback I've received
+                    from those I've collaborated with.
+                </p>
+            </section>
+        </div>
+
+        <footer class="footer">
+            © SHRA௰AAN THAPA — WEB DEVELOPER
+        </footer>
+    </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Smooth scroll for in-page buttons
+        const navButtons = document.querySelectorAll('.btn[data-target]');
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = document.querySelector(btn.getAttribute('data-target'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Optional: keyboard access for buttons behaves like links
+        navButtons.forEach(btn => {
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    btn.click();
+                }
+            });
+        });
+    </script>
+
+
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
