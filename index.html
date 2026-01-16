@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SHRA௰AAN THAPA — WEB DEVELOPER</title>
-    <meta name="description" content="Portfolio landing page for Olivia Wilson, photographer." />
+    <meta name="description" content="Portfolio landing page for SHRA௰AAN THAPA — WEB DEVELOPER." />
 
     <style>
         :root {
@@ -81,7 +81,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
         }
 
         /* Hero content */
@@ -97,11 +97,11 @@
         .hero-title {
             overflow: hidden;
             white-space: nowrap;
+            font-size: clamp(41px, 2.5vw, 22px);
             font-weight: 800;
-            background: #fca40034;
             border-right: 2px solid var(--text);
-            text-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
-            animation: typing 3000ms steps(30, end) infinite, blink 0.7s step-end infinite;
+            text-shadow: 2px 2px 6px rgba(0, 255, 200, 0.493);
+            animation: typing 11s steps(30, end) infinite, blink 0.7s step-end infinite;
         }
 
         /* Typing effect */
@@ -132,13 +132,12 @@
 
         .hero-subtitle {
             font-size: clamp(16px, 2.5vw, 22px);
-            font-weight: 400;
-            background: #fca40034;
-            margin-top: 12px;
+            font-weight: 800;
+            margin-top: 7px;
             opacity: 0;
-            text-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+            text-shadow: 2px 2px 6px rgba(0, 255, 242, 0.651);
             animation: fadeInOut 6s ease-in-out infinite;
-            animation-delay: 0.5s;
+            animation-delay: 0.1s;
         }
 
         @keyframes fadeInOut {
@@ -187,7 +186,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, #ff9f6f, #ffd27f, #87ceeb, #0e141b);
+            background: linear-gradient(180deg, rgb(0, 255, 242), rgba(0, 235, 224), rgb(14, 20, 27), rgb(14, 20, 27));
             animation: skyShift 20s ease-in-out infinite alternate;
             mix-blend-mode: overlay;
         }
@@ -222,14 +221,13 @@
             position: relative;
             max-width: var(--maxw);
             margin: -92px auto 40px;
-            background: var(--card);
+            background: linear-gradient(-3deg, rgb(0, 255, 242), rgba(0, 235, 223, 0.219), rgb(14, 20, 27), rgb(14, 20, 27));
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow);
             padding: 28px 28px 36px;
             z-index: 1;
         }
 
-        
 
         /* Profile row */
         .profile {
@@ -253,10 +251,10 @@
             border-radius: 50%;
             width: 128px;
             height: 128px;
-            padding: 4px;
+            padding: 0;
             overflow: hidden;
             isolation: isolate;
-            box-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+            box-shadow: 2px 2px 6px (-100deg, rgb(0, 255, 242), rgba(0, 235, 223, 0.219), rgb(14, 20, 27), rgb(14, 20, 27));
             animation: glowPulse 3s ease-in-out infinite;
         }
 
@@ -264,11 +262,11 @@
 
             0%,
             100% {
-                box-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+                box-shadow: 2px 2px 6px (-100deg, rgb(0, 255, 242), rgba(0, 235, 223, 0.219), rgb(14, 20, 27), rgb(14, 20, 27));
             }
 
             50% {
-                box-shadow: 2px 2px 6px rgba(248, 76, 7, 0.733);
+                box-shadow: 2px 2px 6px rgb(0, 255, 221);
             }
         }
 
@@ -276,7 +274,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            box-shadow: inset 2px 2px 6px rgba(248, 76, 7, 0.733);
+            box-shadow: inset 2px 2px 6px (-3deg, rgb(0, 255, 242), rgba(0, 235, 223, 0.219), rgb(14, 20, 27), rgb(14, 20, 27));
             border-radius: 50%;
             pointer-events: none;
         }
@@ -284,7 +282,7 @@
         /* Animate name and role Fade‑in + Slide‑dow */
         .name {
             opacity: 0;
-            transform: translateY(-20px);
+            transform: translateY(-120px);
             animation: fadeSlide 1s ease forwards;
         }
 
@@ -300,7 +298,7 @@
             position: relative;
             display: inline-block;
             overflow: hidden;
-            color: #0f1214;
+            color: #eaf0f6;
             font-size: clamp(24px, 4vw, 40px);
             font-weight: 800;
             margin: 2px 0 4px;
@@ -317,9 +315,9 @@
             height: 100%;
             background: linear-gradient(120deg,
                     transparent,
-                    rgba(255, 255, 255, 0.705),
+                    rgba(255, 255, 255, 0.253),
                     transparent);
-            animation: shimmer 2s infinite;
+            animation: shimmer 3s infinite;
         }
 
         @keyframes shimmer {
@@ -397,7 +395,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #3ea0ff);
+            background: linear-gradient(135deg, rgba(80, 253, 239, 0.418), rgba(34, 255, 244, 0.356));
         }
 
         .btn-secondary {
@@ -434,8 +432,8 @@
             align-items: center;
             gap: 10px;
             padding: 12px 14px;
-            background: #f5f7fb;
-            color: #0f1214;
+            color: #f5f7fb;
+            background: #0f1214a4;
             border-radius: var(--radius-sm);
             font-weight: 600;
             transition: background .2s ease;
@@ -450,6 +448,40 @@
             height: 18px;
         }
 
+        /* Animate social media contacts */
+        .contacts .contact {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .contacts .contact:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(135deg, rgba(80, 253, 239, 0.418), rgba(34, 255, 244, 0.356));
+            color: #000000;
+        }
+
+        .contacts .contact svg {
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+
+        .contacts .contact:hover svg {
+            transform: rotate(360deg);
+            color: #000000;
+        }
+
+        .contacts .contact span {
+            transition: color 0.3s ease;
+        }
+
+        .contacts .contact:hover span {
+            color: #000000;
+        }
+
+        .contacts .contact svg {
+            animation: pulse 2s infinite;
+        }
+
         /* Content sections (for About, Portfolio, Reviews) */
         .sections {
             max-width: var(--maxw);
@@ -460,7 +492,7 @@
         }
 
         .section {
-            background: #ffffff;
+            background: linear-gradient(180deg, rgb(0, 255, 242), rgba(0, 235, 223, 0.219), rgb(14, 20, 27), rgb(14, 20, 27));
             border-radius: var(--radius-md);
             box-shadow: var(--shadow);
             padding: 22px;
@@ -469,19 +501,8 @@
             animation: fadeUp 1.2s ease forwards
         }
 
-        .section {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .section.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .section:hover {
-            box-shadow: 0 0 20px rgba(31, 113, 255, 0.3);
+            box-shadow: 0 0 20px rgba(31, 255, 236, 0.555);
             transition: box-shadow 0.4s ease;
         }
 
@@ -493,13 +514,20 @@
         }
 
         .section h2 {
-            margin: 0 0 10px;
+            display: flex;
+            justify-content: center;
+            /* horizontal */
+            align-items: center;
+            /* vertical */
+            text-align: center;
+            color: #ffffff;
+            margin: 0 0 17px;
             font-size: clamp(18px, 2.8vw, 24px);
         }
 
         .section p {
             margin: 0;
-            color: #3f4a59;
+            color: #ffffff;
         }
 
         .section h2,
@@ -524,36 +552,6 @@
             }
         }
 
-        /* Animate social media contacts */
-        .contacts .contact {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .contacts .contact:hover {
-            transform: translateY(-4px) scale(1.05);
-            background: linear-gradient(135deg, #1f71ff, #3ea0ff);
-            color: #fff;
-        }
-
-        .contacts .contact svg {
-            transition: transform 0.4s ease, color 0.3s ease;
-        }
-
-        .contacts .contact:hover svg {
-            transform: rotate(360deg);
-            color: #fff;
-        }
-
-        .contacts .contact span {
-            transition: color 0.3s ease;
-        }
-
-        .contacts .contact:hover span {
-            color: #fff;
-        }
-
         @keyframes pulse {
 
             0%,
@@ -564,10 +562,6 @@
             50% {
                 transform: scale(1.1);
             }
-        }
-
-        .contacts .contact svg {
-            animation: pulse 2s infinite;
         }
 
         /* Footer spacer */
@@ -597,37 +591,35 @@
                 display: flex;
                 position: relative;
                 max-width: var(--maxw);
-                margin: -75px auto 40px;
+                margin: -92px auto 40px;
                 flex-direction: column;
                 align-items: center;
                 gap: 16px;
                 text-align: center;
-
-
-
-                .avatar-wrap {
-                    width: 25vw;
-                    height: 25vw;
-                }
-
-                .nav {
-                    grid-template-columns: 1fr 1fr;
-                }
             }
 
-            @media (max-width: 380px) {
-                .nav {
-                    grid-template-columns: 1fr;
-                }
+            .avatar-wrap {
+                width: 35vw;
+                height: 35vw;
+            }
 
-                .contacts {
-                    gap: 10px;
-                }
+            .nav {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
-                .contact {
-                    width: 100%;
-                    justify-content: flex-start;
-                }
+        @media (max-width: 380px) {
+            .nav {
+                grid-template-columns: 1fr;
+            }
+
+            .contacts {
+                gap: 10px;
+            }
+
+            .contact {
+                width: 100%;
+                justify-content: flex-start;
             }
         }
     </style>
@@ -872,6 +864,4 @@
     </script>
 </body>
 
-
 </html>
-
